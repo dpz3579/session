@@ -27,6 +27,7 @@ var Cookie = require('./session/cookie')
 var MemoryStore = require('./session/memory')
 var Session = require('./session/session')
 var Store = require('./session/store')
+var connectMongo = require('./mongostore').connectMongo;
 
 // environment
 
@@ -36,7 +37,10 @@ var env = process.env.NODE_ENV;
  * Expose the middleware.
  */
 
-exports = module.exports = session;
+exports = module.exports = {
+  session: session ,
+  connectMongo: connectMongo
+};
 
 /**
  * Expose constructors.
